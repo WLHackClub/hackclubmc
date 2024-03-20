@@ -7,10 +7,9 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        // TODO: Write your code here
+        this.getCommand("givegun").setExecutor(new GiveGunCommand());
 
         //this.getServer().getPluginManager().registerEvents(...);
-        //this.getCommand("hackclubmc").setExecutor(...);
     }
 
 }

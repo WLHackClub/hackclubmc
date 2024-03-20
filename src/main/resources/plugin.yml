@@ -4,14 +4,14 @@ main: "io.github.wlhackclub.hackclubmc.Main"  # TODO
 api-version: "1.19"  # TODO
 
 
-#commands:
-#  hackclubmc:
-#    description: "..."
-#    usage: "..."
-#    permission: "hackclubmc.all"
-#    permission-message: "..."
+commands:
+  givegun:
+    description: "give a gun"
+    usage: "/givegun"
+    permission: "hackclubmc.all"
+    permission-message: "not allowed L ratio bozo"
 
 
-#permissions:
-#  hackclubmc.all:
-#    default: op
+permissions:
+  hackclubmc.all:
+    default: op
