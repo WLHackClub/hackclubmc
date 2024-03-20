@@ -1,5 +1,6 @@
 package io.github.wlhackclub.hackclubmc;
 
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
@@ -8,6 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 public class GunListener implements Listener {
 
@@ -20,7 +23,8 @@ public class GunListener implements Listener {
         if (item == null) {
             return;
         }
-        if (item.getItemMeta().getDisplayName().equals("§cAh Super Gun")) {
+        PersistentDataContainer pdc = item.getItemMeta().getPersistentDataContainer();
+        if (pdc.has(new NamespacedKey("hackclubmc", "gun"), PersistentDataType.INTEGER)) {
             Player player = event.getPlayer();
             Snowball snowball = (Snowball) player.getWorld().spawnEntity(player.getEyeLocation(), EntityType.SNOWBALL);
             snowball.setVelocity(player.getEyeLocation().getDirection().multiply(5.0));
