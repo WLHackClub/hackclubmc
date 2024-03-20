@@ -8,8 +8,8 @@ public class Main extends JavaPlugin {
     public void onEnable() {
 
         this.getCommand("givegun").setExecutor(new GiveGunCommand());
+        this.getServer().getPluginManager().registerEvents(new GunListener(), this);
 
-        //this.getServer().getPluginManager().registerEvents(...);
     }
 
 }
