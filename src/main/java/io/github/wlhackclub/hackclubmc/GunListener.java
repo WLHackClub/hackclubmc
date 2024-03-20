@@ -8,12 +8,19 @@ import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
 public class GunListener implements Listener {
+
+    private final Set<UUID> snowballs = new HashSet<>();
 
     @EventHandler()
     public void onClick(PlayerInteractEvent event) {
@@ -30,6 +37,16 @@ public class GunListener implements Listener {
             Location spawnLocation = player.getEyeLocation().add(player.getEyeLocation().getDirection().multiply(0.5));
             Snowball snowball = (Snowball) player.getWorld().spawnEntity(spawnLocation, EntityType.SNOWBALL);
             snowball.setVelocity(player.getEyeLocation().getDirection().multiply(3.0));
+            snowballs.add(snowball.getUniqueId());
+        }
+    }
+
+    @EventHandler()
+    public void onSnowballLand(ProjectileHitEvent event) {
+        UUID idOfEntity = event.getEntity().getUniqueId();
+        if (snowballs.contains(idOfEntity)) {
+            snowballs.remove(idOfEntity);
+            event.getEntity().getWorld().createExplosion(event.getEntity().getLocation(), 7.0F, true, true);
         }
     }
 
