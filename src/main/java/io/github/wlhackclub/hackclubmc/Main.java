@@ -11,6 +11,7 @@ public class Main extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new GunListener(), this);
 
         this.getCommand("givewarpdrive").setExecutor(new WarpDriveCommand());
+        this.getServer().getPluginManager().registerEvents(new WarpDriveListener(), this);
 
     }
 
