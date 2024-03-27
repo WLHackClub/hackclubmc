@@ -10,6 +10,11 @@ commands:
     usage: "/givegun"
     permission: "hackclubmc.all"
     permission-message: "not allowed L ratio bozo"
+  givewarpdrive:
+    description: "give a warp drive"
+    usage: "/givewarpdrive"
+    permission: "hackclubmc.all"
+    permission-message: "not allowed L ratio bozo"
 
 
 permissions:

@@ -10,6 +10,8 @@ public class Main extends JavaPlugin {
         this.getCommand("givegun").setExecutor(new GiveGunCommand());
         this.getServer().getPluginManager().registerEvents(new GunListener(), this);
 
+        this.getCommand("givewarpdrive").setExecutor(new WarpDriveCommand());
+
     }
 
 }
