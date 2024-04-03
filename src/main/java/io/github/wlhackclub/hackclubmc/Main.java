@@ -14,6 +14,7 @@ public class Main extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new WarpDriveListener(), this);
 
         this.getCommand("givehyperion").setExecutor(new HyperionCommand());
+        this.getServer().getPluginManager().registerEvents(new HyperionListener(), this);
 
     }
 
