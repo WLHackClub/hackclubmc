@@ -13,6 +13,8 @@ public class Main extends JavaPlugin {
         this.getCommand("givewarpdrive").setExecutor(new WarpDriveCommand());
         this.getServer().getPluginManager().registerEvents(new WarpDriveListener(), this);
 
+        this.getCommand("hyperion").setExecutor(new HyperionCommand());
+
     }
 
 }
