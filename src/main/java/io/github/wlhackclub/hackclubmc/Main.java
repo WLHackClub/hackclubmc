@@ -4,6 +4,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
+    public GuidedMissiles guidedMissiles;
+
     @Override
     public void onEnable() {
 
@@ -16,7 +18,8 @@ public class Main extends JavaPlugin {
         this.getCommand("givehyperion").setExecutor(new HyperionCommand());
         this.getServer().getPluginManager().registerEvents(new HyperionListener(), this);
 
-        new AirDefenseScanner(this).runTaskTimer(this, 200L, 30L);
+        new AirDefenseScanner(this).runTaskTimer(this, 200L, 100L);
+        guidedMissiles = new GuidedMissiles(this);
 
     }
 

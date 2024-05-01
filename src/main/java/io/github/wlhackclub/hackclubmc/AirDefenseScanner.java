@@ -21,9 +21,10 @@ public class AirDefenseScanner extends BukkitRunnable {
                 if (!(entity instanceof ItemFrame itemFrame))  continue;
                 if (itemFrame.getItem().getType() != Material.NETHERITE_SWORD)  continue;
 
+                //player.getWorld().createExplosion(player.getLocation(), 4.0F, true, true);
                 // TODO: spawn missiles
 
-                player.getWorld().createExplosion(player.getLocation(), 4.0F, true, true);
+                plugin.guidedMissiles.launch(player, itemFrame.getLocation().add(0, 20, 0));
 
             }
         }
