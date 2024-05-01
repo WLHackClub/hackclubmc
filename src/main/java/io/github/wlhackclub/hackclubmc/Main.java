@@ -16,6 +16,8 @@ public class Main extends JavaPlugin {
         this.getCommand("givehyperion").setExecutor(new HyperionCommand());
         this.getServer().getPluginManager().registerEvents(new HyperionListener(), this);
 
+        new AirDefenseScanner(this).runTaskTimer(this, 200L, 30L);
+
     }
 
 }
